@@ -21,7 +21,7 @@ Activate the virtual environment
 
 Install all app requirements
 
-`$ pip install -r requirements.txt`
+`$ sudo pip install -r requirements.txt`
 
 Start your server by running 
 `python manage.py runserver`. 
