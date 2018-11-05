@@ -1,0 +1,39 @@
+1. Pytest, Unnittest and other e.g (nosetest)
+
+- So simply put, Unittest is the main inbuilt test framework, the others are too are test frameworks just test runners or wrappers on top of unittest. (unittest also has an inbuilt testrunner which makes it a standard module maintained by python) for small tests as functions
+- (pytest vs nosetest) You can use which ever, even combine them if you wish though they provide the same functionality, so it’s kind of redundant to mix them i.e (nose and pytest) but unittest is always present.
+- orchestrates the execution of tests and provides the outcome to the user
+- uniitest gives a bad 
+
+python -m unittest tests/test_login.py
+pytest tests/test_login.py
+nosetests tests/test_login.py
+
+
+2. Could you explain what Werkzeug and WSGI are?
+
+- Werkzeug from the big picture is like the implemenetation og WSGI(WEB SERVER GATEWAY INTERFACE).
+  It is a WSGI library meaning it mediates communication between your python application and a proxy server (e.g nginx or apache). so that library serves http requests.
+
+- WSGI is just an interface specification by which server and application communicate.
+
+3. Is the Werkzeug client used mainly for functional testing or functional/integration testing?
+
+Yes, it is a best suite for functional testing because it enables http requests by facilitating wsgi environments.
+- simply put, it creates a wsgi environmebt for testing purposes.
+
+
+4. What are the different ways to structure your Flask application to support unit testing? What are the tradeoffs between these and what do you recommend?
+
+- Structure I used here is to isolate the tests in the tests in their own folder which is regarded a best practice. 
+- using base_test.py as a base-test-case as the application grows. the file will contain all data mocks and be passed as an arg in the uniitest testcase e.g 
+
+'''
+# base_test is a file in the tests folder with the BaseTestCase class
+# BaseTestCase class is passed an an arg in the unnittest main class. this enables centralised declaration of mocked data
+
+from tests.base_test import BaseTestCase
+class UserTestCase(BaseTestCase):
+    def test_blah_blah(self):
+    def test_blah_blah(self):
+'''
